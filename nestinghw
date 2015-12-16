@@ -1,0 +1,3 @@
+print ("How far do you live From Richmond State in miles? 
+miles = int(input())
+

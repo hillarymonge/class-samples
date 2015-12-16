@@ -1,0 +1,11 @@
+print("Give me a variable")
+x = input()
+
+if x > 5: 
+ print("fizz")
+
+if x < 5: 
+ print ("pop")
+
+if x == 5: 
+ print("Fizzpop!")
