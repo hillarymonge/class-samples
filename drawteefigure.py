@@ -17,4 +17,4 @@ def drawFourTees(myTurtle):
   
 pop = turtle.Turtle
 
-pop.drawFourTees()  
+turtle.exitonclick()
