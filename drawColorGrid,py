@@ -1,0 +1,21 @@
+import turtle
+
+colors = [red,green,yellow,black]
+
+def draw1square(myTurtle):
+        for c in colors:
+                myTurtle.penup()
+                myTurtle.pendown()
+                myTurtle.forward(20)
+                myTurtle.right(90)
+                myTurtle.forward(20)
+                myTurtle.right(90)
+                myTurtle.forward(20)
+                myTurtle.right(90)
+                myTurtle.forward(20)
+
+
+
+ru = turtle.Turtle()
+
+drawbigsquare(ru)
