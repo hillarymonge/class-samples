@@ -126,8 +126,26 @@ def make3cuberow(myTurtle):
   zo.right(150)
   zo.pendown()
   make1leftsiderow(zo)
+  
+def make4cuberow(myTurtle):
+  zo.penup()
+  zo.goto(54,70)
+  zo.pendown()
+  zo.right(210)
+  zo.pendown()
+  make1rightsiderow(zo)
+  zo.penup()
+  zo.goto(54,90)
+  zo.pendown()
+  make1toprow(zo)
+  zo.penup()
+  zo.goto(54,90)
+  zo.right(150)
+  zo.pendown()
+  make1leftsiderow(zo)
 
 #3rows of cubes
 make1cuberow(zo)
 make2cuberow(zo)
 make3cuberow(zo)
+make4cuberow(zo)
