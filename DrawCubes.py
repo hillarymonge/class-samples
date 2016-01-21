@@ -60,11 +60,6 @@ def make1toprow(myTurtle):
     zo.pendown()
     count = count + 1
 
-# zo 4 rhombus 2nd row
-#zo.goto(17,-30)
-
-
-# zo makes right rhombus
 def make1rightsiderow(myTurtle):
   count = 0
   while count < 4:
@@ -74,7 +69,6 @@ def make1rightsiderow(myTurtle):
     zo.forward(35)
     zo.pendown()
     count = count + 1
-
 
 def make1leftsiderow(myTurtle):
   count = 0
@@ -88,31 +82,52 @@ def make1leftsiderow(myTurtle):
     count = count + 1
 
 zo.speed(0)
-make1toprow(zo)
-zo.penup()
-zo.goto(0,-20)
-zo.pendown()
-make1rightsiderow(zo)
-zo.penup()
-zo.goto(0,0)
-zo.right(150)
-zo.pendown()
-make1leftsiderow(zo)
-zo.penup()
-zo.goto(18,10)
-zo.right(210)
-zo.pendown()
-make1rightsiderow(zo)
-zo.penup()
-zo.goto(18,30)
-zo.pendown()
-make1toprow(zo)
-zo.penup()
-zo.goto(18,30)
-zo.right(150)
-zo.pendown()
-make1leftsiderow(zo)
-zo.penup()
-zo.goto(37,40)
-zo.right(210)
-make1rightsiderow(zo)
+
+def make1cuberow(myTurtle):
+  make1toprow(zo)
+  zo.penup()
+  zo.goto(0,-20)
+  zo.pendown()
+  make1rightsiderow(zo)
+  zo.penup()
+  zo.goto(0,0)
+  zo.right(150)
+  zo.pendown()
+  make1leftsiderow(zo)
+
+def make2cuberow(myTurtle):
+  zo.penup()
+  zo.goto(18,10)
+  zo.right(210)
+  zo.pendown()
+  make1rightsiderow(zo)
+  zo.penup()
+  zo.goto(18,30)
+  zo.pendown()
+  make1toprow(zo)
+  zo.penup()
+  zo.goto(18,30)
+  zo.right(150)
+  zo.pendown()
+  make1leftsiderow(zo)
+
+def make3cuberow(myTurtle):
+  zo.penup()
+  zo.goto(37,40)
+  zo.right(210)
+  zo.pendown()
+  make1rightsiderow(zo)
+  zo.penup()
+  zo.goto(37,60)
+  zo.pendown()
+  make1toprow(zo)
+  zo.penup()
+  zo.goto(37,60)
+  zo.right(150)
+  zo.pendown()
+  make1leftsiderow(zo)
+
+#3rows of cubes
+make1cuberow(zo)
+make2cuberow(zo)
+make3cuberow(zo)
