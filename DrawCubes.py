@@ -144,8 +144,10 @@ def make4cuberow(myTurtle):
   zo.pendown()
   make1leftsiderow(zo)
 
-#3rows of cubes
-make1cuberow(zo)
-make2cuberow(zo)
-make3cuberow(zo)
-make4cuberow(zo)
+def makecubepattern(myTurtle):
+  make1cuberow(zo)
+  make2cuberow(zo)
+  make3cuberow(zo)
+  make4cuberow(zo)
+
+makecubepattern(zo)
