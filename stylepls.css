@@ -1,0 +1,104 @@
+body {
+    background: radial-gradient(circle,black,purple,black,purple,black,purple);
+}
+
+#wrapper  {
+    background: white;
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+    font-size: 25px;
+    
+}
+
+#header h1 {
+    text-shadow: 3px 3px 6px white;
+}
+
+#header {
+    display: block;
+    margin: auto;
+    clear: both;
+    width: 1000px;
+    height: 170px;
+    background: url(http://pre00.deviantart.net/1519/th/pre/f/2014/053/6/5/free_space_galaxy_texture_by_lyshastra-d77gh18.jpg);
+    background-repeat: no-repeat;
+    color: black;
+}
+
+#logo {
+    width: 290px;
+    display: inline-block;
+    background: white;
+}
+
+#banner {
+    display: inline-block;
+	width:700px;
+}
+
+#bar {
+    width: 1000px;
+    height: 30px;
+    background: radial-gradient(circle,black,purple,black,purple,black,purple);
+}
+
+input[type=text]:focus {
+    width: 50%;
+    
+}
+
+#content {
+    background: white;
+}
+
+#maincontent {
+    background: white;
+    float: right;
+    width: 755px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: black;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+#nav {
+    text-align: left;
+    width: 198px;
+    border: 2px solid purple;
+    height: 246px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#nav li {
+    border: 2px solid purple;
+}
+
+#footer {
+    clear: both;
+    text-align: right;
+    background: black;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+
+
