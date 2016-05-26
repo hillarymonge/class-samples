@@ -42,11 +42,11 @@ def loadTeam(filename):
 	while X:
 		X.split()
 		words = X.split()
-		list.append(Player(words[0], 
-			words[1], 
-			words[2], 
-			words[3], 
-			words[4]))
+		list.append(Player(player[0], 
+			player[1], 
+			player[2], 
+			player[3], 
+			player[4]))
 		X = file.readline()
 	file.close()
 	return list
@@ -56,7 +56,7 @@ print("welcome to Team Manager Deluxe!!")
 print("Do you want to start with a new team or open an existing team?") 
 print("(1) Start with a new team")
 print("(2) Open a file for an existing team") 
-user = raw_input() 
+user = int(raw_input()) 
 
 # either asks to load file or starts a new player list
 if user == "2":
@@ -66,9 +66,6 @@ if user == "2":
 	
 else:
 	list = []
- 
-# asks user for input
-user= raw_input()
 
 while user != "0":
 	print("Enter the number of your choice.") 
@@ -79,25 +76,24 @@ while user != "0":
 	user = int(raw_input())
 	
 	if user == "1":
-# user creates a player
+		# user creates a player
 		print("_____________________________________")
 		print("Enter FIRST Name: ")
 		name = raw_input()
 
 		print("Enter Age: ")
-		age = input()
+		age = int(raw_input())
 
 		print("Enter Goals: ")
-		goals = input()
+		goals = int(raw_input())
 		
 		print("Enter Jersey Number: ")
-		jereseynumber = input()
+		jereseynumber = int(raw_input())
 		
 		print("Enter Position: ")
 		position = raw_input()
-# saves name, age, and goals to their profile and adds to list
-		nlist.append(Player(name, age, goals, jereseynumber, position))
-		print(" ")
+		# saves name, age, and goals to their profile and adds to list
+		list.append(Player(name, age, goals, jereseynumber, position))
 		print("Player Made.")
 		print("_____________________________________")
 
@@ -112,9 +108,8 @@ while user != "0":
 # if user input equals 3
 # will add the new list to the loaded list and save to the same file to load later
 	if user == "3":
-		print("What will your file be called? (include .tmd)")
+		print("What will your file be called?")
 		filename = raw_input()	
 		saveTeam(list, filename)
 		
-if user == "0":
-	print("Bye")	
+	
