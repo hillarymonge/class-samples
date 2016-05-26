@@ -22,11 +22,11 @@ def saveTeam(list, filename):
 	# open file
 	file = open(filename + '.tmd', "w")
 	# write to the file 
-	for p in nlist:
+	for p in list:
 		file.write(p.name + " "
 			+ str(p.age) + " " 
 			+ str(p.goals) + " " 
-			+ str(p.jerseynumber) + " " 
+			+ str(p.jereseynumber) + " " 
 			+ p.position + '\n')
 	# close the file
 	file.close()		
@@ -56,49 +56,49 @@ print("welcome to Team Manager Deluxe!!")
 print("Do you want to start with a new team or open an existing team?") 
 print("(1) Start with a new team")
 print("(2) Open a file for an existing team") 
-user = int(raw_input()) 
+user = int(input()) 
 
 # either asks to load file or starts a new player list
 if user == "2":
 	print("What's the filename for your exsiting team? Enter name with .tmd extension:")
-	filename = raw_input()
+	filename = input()
 	list = loadTeam(filename)
 	
 else:
 	list = []
 
-while user != "0":
+while user != 0:
 	print("Enter the number of your choice.") 
 	print("(1) Make Player") 
 	print("(2) List Players") 
 	print("(3) Save Players") 
 	print("(0) Exit (save to avoid losing your team)")
-	user = int(raw_input())
+	user = int(input())
 	
-	if user == "1":
+	if user == 1:
 		# user creates a player
 		print("_____________________________________")
 		print("Enter FIRST Name: ")
-		name = raw_input()
+		name = input()
 
 		print("Enter Age: ")
-		age = int(raw_input())
+		age = int(input())
 
 		print("Enter Goals: ")
-		goals = int(raw_input())
+		goals = int(input())
 		
 		print("Enter Jersey Number: ")
-		jereseynumber = int(raw_input())
+		jereseynumber = int(input())
 		
 		print("Enter Position: ")
-		position = raw_input()
+		position = input()
 		# saves name, age, and goals to their profile and adds to list
 		list.append(Player(name, age, goals, jereseynumber, position))
 		print("Player Made.")
 		print("_____________________________________")
 
 # if 2, will print the player's stats -- name, age etc
-	if user == "2":
+	if user == 2:
 		print("-------------------------------------")
 		print("Current List:")
 		for p in list:
@@ -107,9 +107,9 @@ while user != "0":
 
 # if user input equals 3
 # will add the new list to the loaded list and save to the same file to load later
-	if user == "3":
+	if user == 3:
 		print("What will your file be called?")
-		filename = raw_input()	
+		filename = input()	
 		saveTeam(list, filename)
 		
-	
+		
