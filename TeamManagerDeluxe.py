@@ -1,115 +1,134 @@
-# makes class called player
+# a Player on a team has a name, an age, and a number of goals so far this season
 class Player(object):
-	def __init__(self, name,  age, goals, jereseynumber, position):
+
+	def __init__(self, name, age, goals, jersey_number, position):
 		self.name = name
 		self.age = age
 		self.goals = goals
-		self.jereseynumber = jereseynumber
+		self.jersey_number = jersey_number
 		self.position = position
 
-# Print their information entered by the user, name  age  goals	
 	def printStats(self):
 		print("\n")
 		print("Name: " + self.name)
 		print("Age: " + str(self.age))
 		print("Goals: " + str(self.goals))
-		print("Jersey Number: " + str(self.jereseynumber))
-		print("Position: " + self.position)
+		print("Jersey Number: " + str(self.jersey_number))
+		print("Position: " + str(self.position))
 		print("\n")
-	
-# when user opens a previosly exsisting file.
-def saveTeam(list, filename):
-	# open file
-	file = open(filename + '.tmd', "w")
-	# write to the file 
-	for p in list:
-		file.write(p.name + " "
-			+ str(p.age) + " " 
-			+ str(p.goals) + " " 
-			+ str(p.jereseynumber) + " " 
-			+ p.position + '\n')
+
+
+
+
+
+# takes the playerList and the user's desired filename
+# writes each Player to file
+def saveTeam(playerList, filename):
+	# open the file
+	my_file = open(filename + '.tmd', 'w')
+
+	# write to the file
+	for p in playerList:
+		my_file.write(p.name + ' ' 
+				+ str(p.age) + ' '
+				+ str(p.goals) + ' '
+				+ str(p.jersey_number) + ' '
+				+ p.position + '\n')
+
 	# close the file
-	file.close()		
+	my_file.close()
 
-#loads the team, and adds to the list 
+
+
+
+
+# takes a filename for a file of players
+# returns a list of Players
 def loadTeam(filename):
+
 	# empty list
-	list  = []
-	# open
-	file = open(filename, "r")
-	X = file.readline()
-	# makes the players into a list to be read
-	while X:
-		X.split()
-		words = X.split()
-		list.append(Player(player[0], 
-			player[1], 
-			player[2], 
-			player[3], 
+	my_players = []
+	# open the file
+	my_file = open(filename, 'r')
+
+	# read each line and create Player from it
+	line = my_file.readline()
+	while line:
+		# split each line into a list of the variables
+		player = line.split()
+		my_players.append(Player(player[0],
+			player[1],
+			player[2],
+			player[3],
 			player[4]))
-		X = file.readline()
-	file.close()
-	return list
-	
-# asks to load file or make new one 
-print("welcome to Team Manager Deluxe!!")
-print("Do you want to start with a new team or open an existing team?") 
+		# read the next line
+		line = my_file.readline()
+
+	# close the file
+	my_file.close()
+
+	# return the completed list
+	return my_players
+
+
+
+# when starting, see if the user wants to load a team
+print("Welcome to Team Manager Deluxe!")
+print("Do you want to start with a new team or open an existing team?")
+print("Enter the # of your choice and press Enter.")
 print("(1) Start with a new team")
-print("(2) Open a file for an existing team") 
-user = int(input()) 
+print("(2) Open a file for an existing team")
+user_choice = int(raw_input())
 
-# either asks to load file or starts a new player list
-if user == "2":
-	print("What's the filename for your exsiting team? Enter name with .tmd extension:")
-	filename = input()
-	list = loadTeam(filename)
-	
+if user_choice == 2:
+	print("What's the filename for your existing team? Enter the whole name, including its .tmd extension.")
+	filename = raw_input()
+	my_players = loadTeam(filename)
 else:
-	list = []
+	my_players = []
 
-while user != 0:
-	print("Enter the number of your choice.") 
-	print("(1) Make Player") 
-	print("(2) List Players") 
-	print("(3) Save Players") 
-	print("(0) Exit (save to avoid losing your team)")
-	user = int(input())
+while user_choice != 0:
+	print("What do you want to do? Enter the # of your choice and press Enter.")
+	print("(1) Add a player")
+	print("(2) Print all players")
+	print("(3) Print average number of goals for all players")
+	print("(4) Save your player list to a file")
+	print("(0) Leave the program (save first to avoid losing your data!)")
+	user_choice = int(raw_input())
+
+	# if the user wants to add a player, collect their data and make a Player object
+	if user_choice == 1:
+		print("Enter name:")
+		player_name = raw_input()
+		print("Enter age:")
+		player_age = int(raw_input())
+		print("Enter number of goals scored this season:")
+		player_goals = int(raw_input())
+		print("Enter the jersey number worn by this player:")
+		jersey_num = int(raw_input())
+		print("Enter the position that this player plays:")
+		position = raw_input()
+		my_players.append(Player(player_name, player_age, player_goals, jersey_num, position))
+		print("Ok, player entered.")
+
+	# if the user wants to print the players, call printStats for each Player
+	if user_choice == 2:
+		print("Here are all the players...")
+		for player in my_players:
+			player.printStats()
 	
-	if user == 1:
-		# user creates a player
-		print("_____________________________________")
-		print("Enter FIRST Name: ")
-		name = input()
+	if user_choice == 3:
+		# average = sum of all goals divided by count of players
+		sum = 0
+		count = 0
+		for player in my_players:
+			sum += player.goals
+			count += 1
+		avg = sum / count
 
-		print("Enter Age: ")
-		age = int(input())
-
-		print("Enter Goals: ")
-		goals = int(input())
-		
-		print("Enter Jersey Number: ")
-		jereseynumber = int(input())
-		
-		print("Enter Position: ")
-		position = input()
-		# saves name, age, and goals to their profile and adds to list
-		list.append(Player(name, age, goals, jereseynumber, position))
-		print("Player Made.")
-		print("_____________________________________")
-
-# if 2, will print the player's stats -- name, age etc
-	if user == 2:
-		print("-------------------------------------")
-		print("Current List:")
-		for p in list:
-			p.printStats()
-		print("-------------------------------------")
-
-# if user input equals 3
-# will add the new list to the loaded list and save to the same file to load later
-	if user == 3:
-		print("What will your file be called?")
-		filename = input()	
-		saveTeam(list, filename)
-		
-		
+		print("Average goals: " + str(avg))
+	
+	if user_choice == 4:
+		print("Ok, what would you like to name the file? We'll add on a .tmd file extension to whatever you enter.")
+		filename = raw_input()
+		saveTeam(my_players, filename)
